@@ -28,7 +28,7 @@ JANET_FN(cfun_base58_decode,
 }
 
 JANET_FN(cfun_base58_checked_decode,
-         "(base58/checked_decode message)",
+         "(base58/checked-decode message)",
          "Base58 decode message with checksum and version byte.") {
     janet_fixarity(argc, 1);
     const uint8_t* message = janet_getstring(argv, 0);
@@ -73,7 +73,7 @@ JANET_FN(cfun_base58_encode,
 }
 
 JANET_FN(cfun_base58_checked_encode,
-         "(base58/checked_encode message version)",
+         "(base58/checked-encode message version)",
          "Base58 encode message with checksum and version byte.") {
     janet_arity(argc, 1, 2);
     const uint8_t* message = janet_getstring(argv, 0);
@@ -96,9 +96,9 @@ JANET_FN(cfun_base58_checked_encode,
 JANET_MODULE_ENTRY(JanetTable *env) {
     JanetRegExt cfuns[] = {
         JANET_REG("decode", cfun_base58_decode),
-        JANET_REG("checked_decode", cfun_base58_checked_decode),
+        JANET_REG("checked-decode", cfun_base58_checked_decode),
         JANET_REG("encode", cfun_base58_encode),
-        JANET_REG("checked_encode", cfun_base58_checked_encode),
+        JANET_REG("checked-encode", cfun_base58_checked_encode),
         JANET_REG_END
     };
     janet_cfuns_ext(env, "base58", cfuns);
